@@ -1,0 +1,120 @@
+.blog-post-shell {
+  background-color: #0e1129;
+  color: #cbd5e1;
+  min-height: calc(100vh - 48px);
+  font-family: 'Fira Code', monospace;
+  padding: 2rem 1rem;
+}
+
+.blog-post-card {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #1e293b;
+  border-radius: 0.5rem;
+  background-color: #11182f;
+  padding: 1.5rem;
+}
+
+.blog-post-back {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.blog-post-back:hover {
+  color: #facc15;
+}
+
+.blog-post-title {
+  color: #facc15;
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.blog-post-meta {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-content {
+  line-height: 1.8;
+  font-size: 0.95rem;
+  color: #dbe6ff;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3 {
+  color: #c3dafe;
+  margin: 1.25rem 0 0.5rem;
+  line-height: 1.4;
+}
+
+.blog-content h1 {
+  font-size: 1.4rem;
+}
+
+.blog-content h2 {
+  font-size: 1.2rem;
+}
+
+.blog-content h3 {
+  font-size: 1.05rem;
+}
+
+.blog-content p {
+  margin: 0.75rem 0;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin: 0.75rem 0 0.75rem 1.5rem;
+}
+
+.blog-content li {
+  margin: 0.4rem 0;
+}
+
+.blog-content code {
+  background-color: #1e293b;
+  color: #a5f3fc;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+.blog-content pre {
+  background-color: #0b1225;
+  border: 1px solid #1e293b;
+  border-radius: 0.5rem;
+  padding: 0.9rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.blog-content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.blog-content a {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .blog-post-shell {
+    padding: 1rem 0.5rem;
+  }
+
+  .blog-post-card {
+    padding: 1rem;
+  }
+}
+
+
+a, u {
+  text-decoration: none;
+}

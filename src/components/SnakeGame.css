@@ -1,0 +1,36 @@
+.snake-game {
+    background: #14213d;
+    border: 2px solid #004f6b;
+    border-radius: 10px;
+    padding: 1rem;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    font-family: 'Fira Code', monospace;
+    color: #9be6ff;
+    box-shadow: 0 0 20px #00ffcc55;
+  }
+  
+  canvas {
+    background-color: #0e1129;
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #00ffcc33;
+  }
+  
+  button {
+    font-family: 'Fira Code', monospace;
+    padding: 0.4rem 1rem;
+    background-color: #ffc857;
+    border: none;
+    color: #000;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .instructions {
+    font-size: 0.8rem;
+    color: #7afeff;
+  }
+  

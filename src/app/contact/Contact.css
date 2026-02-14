@@ -1,0 +1,131 @@
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Fira Code', monospace;
+    background-color: #0e1129;
+    color: #cbd5e1;
+    min-height: calc(100vh - 48px);
+  }
+  
+  /* Sidebar */
+  .contact-sidebar {
+    width: 20%;
+    border-right: 1px solid #1e293b;
+    background-color: #0e1129;
+  }
+
+  .sidebar-title {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    color: #facc15;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #1e293b;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    max-width: 100%;
+  }
+  
+  .contact-info li,
+  .contact-links li {
+    list-style: none;
+    margin: .5rem 1rem ;
+    font-size: 0.875rem;
+    color: #e2e8f0;
+  }
+  
+  .contact-links a {
+    text-decoration: none;
+    color: #94a3b8;
+  }
+  
+  .contact-links a:hover {
+    color: #facc15;
+  }
+  
+  /* Main Content */
+  .contact-main {
+    display: flex;
+    flex: 1;
+    margin: inherit;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background-color: #0e1129;
+  }
+  
+  /* Form styling */
+  .contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 1rem;
+    margin: 1.5rem;
+  }
+  
+  .contact-form label {
+    font-size: 0.875rem;
+    color: #94a3b8;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    background-color: #0e1129;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+  }
+  
+  .contact-form button {
+    background-color: #334155;
+    color: #cbd5e1;
+    border: none;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    font-family: 'Fira Code', monospace;
+    cursor: not-allowed;
+    border-radius: 4px;
+  }
+  
+  /* Code block */
+  .contact-code {
+    flex: 1;
+    background-color: #0e1129;
+    padding: 1.5rem;
+    overflow-x: auto;
+  }
+  
+  .contact-code pre {
+    color: #94a3b8;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+    }
+  
+    .contact-main {
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .contact-sidebar {
+      width: 100%;
+      border-bottom: 1px solid #1e293b;
+    }
+  }
+  
+  .tab-title {
+    color: #facc15;
+    border-bottom: 1px solid #1e2233;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  a, u {
+    text-decoration: none;
+  }

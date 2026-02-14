@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  background-color: #0e1129;
+  color: #ffffff;
+}
+
+.portfolio-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.portfolio-logo {
+  color: #999;
+}
+
+.portfolio-nav a {
+  color: #999;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+.portfolio-nav a.active {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.portfolio-main {
+  background: radial-gradient(circle, #183347, #0e1129);
+  background: radial-gradient(square, #050f67, #0e1129);
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  padding: 2rem 0;
+}
+
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .portfolio-container {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 2rem 0;
+    }
+  
+    .portfolio-main {
+      flex-direction: column-reverse;
+      justify-content: space-evenly;
+      flex: 1;
+      padding: 2rem 0;
+    }
+
+    .portfolio-text {
+      margin-left: 3rem;
+    }
+  }
+
+.portfolio-text {
+  max-width: 100%;
+  align-content: center;
+}
+
+.portfolio-text h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.portfolio-text h2 {
+  font-size: 1.5rem;
+  color: #7e90ff;
+  margin-bottom: 1rem;
+}
+
+.comment {
+  color: #999;
+  font-style: italic;
+}
+
+.code {
+  color: #00e0e0;
+}
+
+.link {
+  color: #ff7e79;
+}
+
+.portfolio-game {
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn {
+  margin-left: 0.5rem;
+  background: none;
+  border: 1px solid #777;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+a, u {
+  text-decoration: none;
+}

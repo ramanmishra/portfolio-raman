@@ -1,0 +1,33 @@
+.root {
+    --bg : #0e1129;
+}
+.terminal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0e1129;
+    border-top: 1px solid #1e2233;
+    padding: 0.5rem 1rem;
+    font-family: 'Fira Code', monospace;
+    color: #9ca3af;
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .footer-left button {
+    background-color: #1f2937;
+    color: #d1d5db;
+    border: none;
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+  }
+  
+  .footer-left button:hover {
+    background-color: #374151;
+  }
+  

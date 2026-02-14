@@ -1,0 +1,35 @@
+.terminal-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0e1129;
+    border-bottom: 1px solid #1e2233;
+    border-top-left-radius: .5rem;
+    font-family: 'Fira Code', monospace;
+    color: #d1d5db;
+    height: 3rem;
+    flex-direction: row-reverse;
+  }
+  
+  .left-title,
+  .right-placeholder {
+    font-size: 0.875rem;
+    color: #9ca3af;
+  }
+  
+  .nav-tabs {
+    display: flex;
+  }
+  
+  .tab {
+    color: #9ca3af;
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+  }
+  
+  .tab.active {
+    border-bottom: 2px solid #facc15;
+  }
