@@ -12,7 +12,6 @@ const nextConfig = {
   },
   trailingSlash: true,
   basePath,
-  assetPrefix: basePath,
 };
 
 module.exports = nextConfig;
