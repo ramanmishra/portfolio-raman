@@ -15,6 +15,8 @@ const skills = [
 
 const Projects = () => {
     const [selectedTech, setSelectedTech] = useState('All');
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    const getImageSrc = (src: string) => `${basePath}${src}`;
 
     const filteredProjects = projects.filter(
         (project) => selectedTech.toLowerCase().includes(project.tech.toLowerCase()) || selectedTech === 'All'
@@ -44,7 +46,7 @@ const Projects = () => {
                     {filteredProjects.map((project) => (
                         <div key={project.id} className="project-card">
                             <h4 className="project-title">{project.title} <span>// {project.subtitle}</span></h4>
-                            <Image src={project.image} alt={project.title} width={400} height={250} className="project-image" />
+                            <Image src={getImageSrc(project.image)} alt={project.title} width={400} height={250} className="project-image" />
                             <p className="project-desc">{project.description}</p>
                             <ProjectButton
                                 className="view-btn"

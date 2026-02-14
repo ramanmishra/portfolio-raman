@@ -16,6 +16,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     onBack
 }) => {
     const [activeDiagram, setActiveDiagram] = useState<'main' | 'server' | 'deployment' | 'ui' | 'database'>('main');
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
     const handleClick = (section: 'server' | 'deployment' | 'ui' | 'database') => {
         setActiveDiagram(section);

@@ -28,7 +28,7 @@ export default function Header() {
           </Link>
         ))}
       </nav>
-      <Link href='contact' className={`tab ${pathname == 'contact' ? 'active nav-right nav-tab' : 'nav-right nav-tab'}`}>_contact-me</Link>
+      <Link href="/contact" className={`tab ${pathname === '/contact' ? 'active nav-right nav-tab' : 'nav-right nav-tab'}`}>_contact-me</Link>
     </div>
   );
 }
