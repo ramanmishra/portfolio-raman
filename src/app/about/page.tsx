@@ -4,15 +4,17 @@ import React, { useState } from "react";
 import "./AboutMe.css";
 import { usePathname } from 'next/navigation';
 import BioSection from "@/components/BioSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import InterestSection from "@/components/InterestSection";
 import UniversityEducationSection from "@/components/UniversityEducationSection";
 import HighSchoolEducationSection from "@/components/HighSchoolEducationSection";
 
-const validTabs = ["about", "interest", "education", "high-school", "university"] as const;
+const validTabs = ["about", "experience", "interest", "education", "high-school", "university"] as const;
 type TabKey = typeof validTabs[number];
 
 const activeTabContent = {
     about: <BioSection />,
+    experience: <ExperienceSection />,
     interest: <InterestSection />,
     education: <></>,
     "high-school": <HighSchoolEducationSection />,
@@ -47,6 +49,7 @@ const AboutMe: React.FC = () => {
             <div className="sidebar">
                 <ul className="explorer">
                     <li className={getTabClass('about', activeTab)} onClick={() => setActiveTab('about')}>› personal-info</li>
+                    <li className={getTabClass('experience', activeTab)} onClick={() => setActiveTab('experience')}>experience</li>
                     <li className={getTabClass('interest', activeTab)} onClick={() => setActiveTab('interest')}>interest</li>
                     <li className={getTabClass('education', activeTab)} onClick={() => {
                         setSelectedEducation(null);

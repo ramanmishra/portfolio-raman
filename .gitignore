@@ -28,5 +28,5 @@ pnpm-debug.log*
 .vscode/
 .idea/
 
-AGENTS.md
-IMPROVEMENTS_TRACKER.md
+*.md
+!README.md

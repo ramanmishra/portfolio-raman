@@ -6,7 +6,7 @@ const basePath = isGithubActions && !isUserOrOrgPage ? `/${repoName}` : '';
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  output: isGithubActions ? 'export' : undefined,
   images: {
     unoptimized: true,
   },

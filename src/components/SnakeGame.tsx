@@ -16,6 +16,7 @@ const SnakeGame: React.FC = () => {
     const [dir, setDir] = useState({ x: 1, y: 0 });
     const [gameOver, setGameOver] = useState(false);
     const [started, setStarted] = useState(false);
+    const score = snake.length - 1;
 
     const resetGame = () => {
         setSnake([{ x: 5, y: 5 }]);
@@ -32,6 +33,10 @@ const SnakeGame: React.FC = () => {
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+                e.preventDefault();
+            }
+
             switch (e.key) {
                 case "ArrowUp": if (dir.y === 0) setDir({ x: 0, y: -1 }); break;
                 case "ArrowDown": if (dir.y === 0) setDir({ x: 0, y: 1 }); break;
@@ -100,6 +105,10 @@ const SnakeGame: React.FC = () => {
 
     return (
         <div className="snake-game">
+            <div className="snake-game__header">
+                <span className="snake-game__title">snake.tsx</span>
+                <span className="snake-game__score">score: {score}</span>
+            </div>
             <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} />
             {!started ? (
                 <button onClick={resetGame}>start-game</button>

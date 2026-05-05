@@ -1,59 +1,179 @@
 'use client';
+import { FormEvent, useState } from 'react';
+import { FaGithub, FaLinkedinIn, FaStackOverflow, FaXTwitter } from 'react-icons/fa6';
 import './Contact.css';
 
 export default function Contact() {
-    return (
-        <div className="contact-container">
-            <aside className="contact-sidebar">
-                <h3 className="sidebar-title">contacts</h3>
-                <ul className="contact-info">
-                    <li>📧 raman.mishra7@gmail.com</li>
-                    <li>📞 +49 160 8329271</li>
-                </ul>
-                <h3 className="sidebar-title">find-me-also-in</h3>
-                <ul className="contact-links">
-                    <li><a href="https://stackoverflow.com/users/8870132/raman-mishra">🔗 StackOverflow</a></li>
-                    <li><a href="https://github.com/ramanmishra">🔗 Github</a></li>
-                    <li><a href="https://x.com/ramanmishra7">🔗 X</a></li>
-                    <li><a href="https://www.linkedin.com/in/raman-mishra-62627394/">🔗 LinkedIn</a></li>
-                </ul>
-            </aside>
-            <div style={{ width: "80%" }}>
-                <h3 className="sidebar-title">contact-form</h3>
-                <main className="contact-main">
-                    <form className="contact-form">
-                        <label htmlFor="name">_name:</label>
-                        <input id="name" type="text" placeholder="Your Name" />
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [comment, setComment] = useState('');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-                        <label htmlFor="email">_email:</label>
-                        <input id="email" type="email" placeholder="Your Email" />
+  const formActionUrl = process.env.NEXT_PUBLIC_GOOGLE_FORM_ACTION_URL || '';
+  const nameFieldId = process.env.NEXT_PUBLIC_GOOGLE_FORM_NAME_FIELD || '';
+  const emailFieldId = process.env.NEXT_PUBLIC_GOOGLE_FORM_EMAIL_FIELD || '';
+  const phoneFieldId = process.env.NEXT_PUBLIC_GOOGLE_FORM_PHONE_FIELD || '';
+  const commentFieldId = process.env.NEXT_PUBLIC_GOOGLE_FORM_COMMENT_FIELD || '';
 
-                        <label htmlFor="message">_message:</label>
-                        <textarea id="message" placeholder="your message here ..." />
+  const isConfigured = Boolean(formActionUrl && nameFieldId && emailFieldId);
 
-                        <button type="submit">submit-message</button>
-                    </form>
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    if (!isConfigured) {
+      event.preventDefault();
+      setStatus('error');
+      return;
+    }
+    setStatus('success');
+  };
 
-                    <div className="contact-code">
-                        <pre>
-                            <code>
-                                {`const button = document.querySelector('#sendBtn');
+  return (
+    <div className="contact-container">
+      <aside className="contact-sidebar">
+        <h3 className="sidebar-title">contact</h3>
+        <ul className="contact-links">
+          <li>
+            <span className="contact-label">email</span>
+            <a href="mailto:raman.mishra7@gmail.com">raman.mishra7@gmail.com</a>
+          </li>
+          <li>
+            <span className="contact-label">phone</span>
+            <a href="tel:+491608329271">+49 160 8329271</a>
+          </li>
+          <li>
+            <span className="contact-label">location</span>
+            <span>Düsseldorf, Germany</span>
+          </li>
+        </ul>
+        <h3 className="sidebar-title">profiles</h3>
+        <ul className="contact-profile-links">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/raman-mishra-62627394/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <FaLinkedinIn />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/ramanmishra"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <FaGithub />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://stackoverflow.com/users/8870132/raman-mishra"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Stack Overflow"
+              title="Stack Overflow"
+            >
+              <FaStackOverflow />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://x.com/ramanmishra7"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="X"
+              title="X"
+            >
+              <FaXTwitter />
+            </a>
+          </li>
+        </ul>
+      </aside>
 
-const message = {
-  name: "Raman Mishra",
-  email: "",
-  message: "",
-  date: "Thu 21 Apr"
-}
+      <div className="contact-content">
+        <div className="sidebar-title">contact.raman</div>
+        <main className="contact-main">
+          <div className="contact-main-grid">
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+              action={formActionUrl}
+              method="POST"
+              target="contact-form-submit-target"
+            >
+              <label htmlFor="name">_name:</label>
+              <input
+                id="name"
+                name={nameFieldId}
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                required
+              />
 
-button.addEventListener('click', () => {
-  form.send(message);
-})`}
-                            </code>
-                        </pre>
-                    </div>
-                </main>
-            </div>
-        </div>
-    );
+              <label htmlFor="email">_email:</label>
+              <input
+                id="email"
+                name={emailFieldId}
+                type="email"
+                placeholder="Your Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+              />
+
+              <label htmlFor="phone">_phone-number:</label>
+              <input
+                id="phone"
+                name={phoneFieldId}
+                type="tel"
+                placeholder="Your Phone Number (optional)"
+                value={phoneNumber}
+                onChange={(event) => setPhoneNumber(event.target.value)}
+              />
+
+              <label htmlFor="comment">_message:</label>
+              <textarea
+                id="comment"
+                name={commentFieldId}
+                placeholder="Role, company, or message"
+                value={comment}
+                onChange={(event) => setComment(event.target.value)}
+              />
+
+              <button type="submit">submit-message</button>
+              {status === 'success' && (
+                <p className="contact-form-status success">message-submitted</p>
+              )}
+              {status === 'error' && (
+                <p className="contact-form-status error">
+                  failed-to-send-message. check-google-form-config (action-url + required field ids).
+                </p>
+              )}
+            </form>
+
+            <section className="contact-intro-panel">
+              <h1 className="contact-heading">Let&apos;s connect</h1>
+              <p className="contact-intro-text">
+                Open to senior backend engineering opportunities and technical
+                conversations around Java, Spring Boot, Scala, Kafka, and
+                distributed systems.
+              </p>
+            </section>
+          </div>
+
+          <iframe
+            name="contact-form-submit-target"
+            title="contact-form-submit-target"
+            style={{ display: 'none' }}
+          />
+        </main>
+      </div>
+    </div>
+  );
 }
