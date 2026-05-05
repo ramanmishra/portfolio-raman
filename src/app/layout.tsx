@@ -3,7 +3,6 @@ import '../../globals.css'
 import React, { ReactNode } from "react";
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
-import AssistantShell from '@/components/assistant/AssistantShell';
 
 interface Props {
   children?: ReactNode
@@ -15,7 +14,6 @@ export default function RootLayout({ children, ...props }: Props) {
       <body>
         <Header />
         <main>{children}</main>
-        <AssistantShell />
         <Footer />
       </body>
     </html>
